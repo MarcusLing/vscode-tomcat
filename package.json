@@ -2,12 +2,12 @@
   "name": "vscode-tomcat",
   "displayName": "Tomcat for Java",
   "description": "%extension.description%",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "publisher": "adashen",
   "aiKey": "174d54c8-21db-4808-8a41-1ddb08d97147",
   "icon": "resources/icon.png",
   "engines": {
-    "vscode": "^1.21.0"
+    "vscode": "^1.22.0"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,8 @@
     "onCommand:tomcat.war.reveal",
     "onCommand:tomcat.war.delete",
     "onCommand:tomcat.package",
+    "onCommand:tomcat.webapp.run",
+    "onCommand:tomcat.webapp.debug",
     "onView:tomcatServerExplorer"
   ],
   "main": "./out/src/extension",
@@ -176,19 +178,18 @@
       {
         "command": "tomcat.war.reveal",
         "title": "Reveal in Explorer"
+      },
+      {
+        "command": "tomcat.webapp.run",
+        "title": "Run on Tomcat Server"
+      },
+      {
+        "command": "tomcat.webapp.debug",
+        "title": "Debug on Tomcat Server"
       }
     ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "tomcatServer",
-          "title": "Tomcat Servers",
-          "icon": "resources/Tomcat_logo.svg"
-        }
-      ]
-    },
     "views": {
-      "tomcatServer": [
+      "explorer": [
         {
           "id": "tomcatServerExplorer",
           "name": "Tomcat Servers"
@@ -260,6 +261,14 @@
         {
           "command": "tomcat.server.debug",
           "when": "never"
+        },
+        {
+          "command": "tomcat.webapp.run",
+          "when": "never"
+        },
+        {
+          "command": "tomcat.webapp.debug",
+          "when": "never"
         }
       ],
       "explorer/context": [
@@ -270,6 +279,14 @@
         {
           "command": "tomcat.war.debug",
           "when": "explorerResourceIsFolder == false && resourceExtname == .war"
+        },
+        {
+          "command": "tomcat.webapp.run",
+          "when": "explorerResourceIsFolder == true"
+        },
+        {
+          "command": "tomcat.webapp.debug",
+          "when": "explorerResourceIsFolder == true"
         }
       ],
       "editor/title": [
@@ -406,7 +423,7 @@
     "tslint": "^5.10.0",
     "tslint-microsoft-contrib": "5.0.1",
     "typescript": "^2.8.3",
-    "vscode": "^1.1.17"
+    "vscode": "^1.1.18"
   },
   "dependencies": {
     "chokidar": "^1.7.0",

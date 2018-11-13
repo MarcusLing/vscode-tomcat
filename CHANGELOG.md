@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to the "vscode-tomcat" extension will be documented in this file.
 
+# 0.10.0
+### Added
+* Support right click on exploded war folder to run it directory Tomcat Server
+* Support right click on exploded war folder to debug it directory on Tomcat Server
+### Fixed
+* Fix issue [#177](https://github.com/adashen/vscode-tomcat/issues/206)
+
 ## 0.9.0
 ### Added
 * Add command "Generate War Package from Current Folder"
@@ -12,7 +19,7 @@ All notable changes to the "vscode-tomcat" extension will be documented in this 
 
 ## 0.8.0
 ### Added
-* Enabel "Open in Browser" command for idle server too
+* Enable "Open in Browser" command for idle server too
 * Support right click on server to select a war package to debug
 ### Fixed
 * Fix issue [#168](https://github.com/adashen/vscode-tomcat/issues/162)
